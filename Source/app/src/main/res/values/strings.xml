@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Pizza Order</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Pizza Store</string>
+    <string name="nav_header_subtitle">PizzaStore@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Thực đơn</string>
+    <string name="menu_admin">Quản lý menu</string>
+    <string name="menu_hístory">Lịch sử đặt</string>
+</resources>
