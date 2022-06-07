@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.navigator_ex.HomeVerAdapter;
 import com.example.navigator_ex.HomeVerModel;
 import com.example.navigator_ex.R;
-import com.example.navigator_ex.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
 import java.util.List;
