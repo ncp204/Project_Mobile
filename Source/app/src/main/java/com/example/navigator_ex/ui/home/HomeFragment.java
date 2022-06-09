@@ -9,29 +9,43 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.navigator_ex.databinding.FragmentHomeBinding;
+import com.example.navigator_ex.HomeVerAdapter;
+import com.example.navigator_ex.HomeVerModel;
+import com.example.navigator_ex.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    RecyclerView homeVerticalRec;
+    List<HomeVerModel> homeVerModelList;
+    HomeVerAdapter homeVerAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+       View root = inflater.inflate(R.layout.fragment_home, container, false);
+       homeVerticalRec = root.findViewById(R.id.itemPizzaN);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+       homeVerModelList= new ArrayList<>();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+       homeVerModelList.add(new HomeVerModel(R.drawable.pizza1, "Pizza", "45 000"));
+        homeVerModelList.add(new HomeVerModel(R.drawable.pizza1, "Pizza", "45 000"));
+        homeVerModelList.add(new HomeVerModel(R.drawable.pizza1, "Pizza", "45 000"));
+        homeVerModelList.add(new HomeVerModel(R.drawable.pizza1, "Pizza", "45 000"));
+        homeVerModelList.add(new HomeVerModel(R.drawable.pizza1, "Pizza", "45 000"));
+        homeVerModelList.add(new HomeVerModel(R.drawable.pizza1, "Pizza", "45 000"));
+        homeVerModelList.add(new HomeVerModel(R.drawable.pizza1, "Pizza", "45 000"));
+        homeVerModelList.add(new HomeVerModel(R.drawable.pizza1, "Pizza", "45 000"));
+
+        homeVerAdapter = new HomeVerAdapter(getActivity(), homeVerModelList);
+        homeVerticalRec.setAdapter(homeVerAdapter);
+        homeVerticalRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
+        homeVerticalRec.setHasFixedSize(true);
+        homeVerticalRec.setNestedScrollingEnabled(false);
         return root;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
     }
 }
